@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sữa Chua Nhà Phú – Đặt hàng online</title>
+  <meta name="description" content="Sữa chua nhà làm tươi mỗi ngày. Đặt hàng online – giao nhanh nội thành." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">
+        <span class="logo">🥛</span>
+        <span class="txt">Sữa Chua Nhà Phú</span>
+      </a>
+      <nav class="nav">
+        <a href="#san-pham">Sản phẩm</a>
+        <a href="#uu-dai">Ưu đãi</a>
+        <a href="#dat-hang">Đặt hàng</a>
+        <a href="#lien-he">Liên hệ</a>
+        <button id="openCart" class="btn">Giỏ hàng (<span id="cartCount">0</span>)</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <h1>Sữa chua nhà làm, tươi mỗi ngày</h1>
+        <p>Mịn mượt – tốt cho tiêu hoá – ít đường. Đặt trước 16:00 để giao trong ngày.</p>
+        <div class="hero-cta">
+          <a href="#san-pham" class="btn btn-primary">Xem menu</a>
+          <a href="#dat-hang" class="btn btn-outline">Đặt ngay</a>
+        </div>
+        <ul class="hero-bullets">
+          <li>✔ Sữa tươi chuẩn <b>Pasteur</b></li>
+          <li>✔ Đường mía tự nhiên, không chất bảo quản</li>
+          <li>✔ Giao nhanh nội thành (20–40 phút)</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1488477304112-4944851de03d?q=80&w=1200&auto=format&fit=crop" alt="Sữa chua nhà làm">
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <section id="san-pham" class="section">
+      <div class="section-head">
+        <h2>Menu Sữa Chua</h2>
+        <p>Chọn hương vị và thêm vào giỏ.</p>
+      </div>
+      <div id="productGrid" class="grid"></div>
+    </section>
+
+    <section id="uu-dai" class="section banner">
+      <div class="banner-inner">
+        <h3>Ưu đãi tháng này</h3>
+        <p><strong>Miễn phí ship</strong> cho đơn từ <strong>200.000đ</strong>. Mua 10 tặng 1 (áp dụng hũ 100ml).</p>
+      </div>
+    </section>
+
+    <section id="dat-hang" class="section">
+      <div class="section-head">
+        <h2>Đặt hàng nhanh</h2>
+        <p>Điền thông tin để xác nhận đơn. Chúng tôi sẽ gọi nếu cần.</p>
+      </div>
+      <form id="checkoutForm" class="checkout">
+        <div class="form-row">
+          <div class="field">
+            <label for="customerName">Họ & tên</label>
+            <input required id="customerName" name="customerName" placeholder="VD: Trần Quý Phú" />
+          </div>
+          <div class="field">
+            <label for="phone">Số điện thoại</label>
+            <input required pattern="^0\d{9}$" id="phone" name="phone" placeholder="VD: 09xxxxxxxx" />
+            <small>Số 10 chữ số, bắt đầu bằng 0</small>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="address">Địa chỉ giao</label>
+            <input required id="address" name="address" placeholder="Số nhà, đường, phường/xã, quận/huyện" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="deliveryTime">Thời gian giao</label>
+            <select id="deliveryTime" name="deliveryTime">
+              <option>Giao ngay (20–40 phút)</option>
+              <option>Trong hôm nay trước 16:00</option>
+              <option>Ngày mai sáng (8:00–11:00)</option>
+              <option>Ngày mai chiều (13:00–16:00)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="payment">Thanh toán</label>
+            <select id="payment" name="payment">
+              <option>Tiền mặt khi nhận</option>
+              <option>Chuyển khoản</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field full">
+            <label for="note">Ghi chú</label>
+            <textarea id="note" name="note" rows="3" placeholder="Ví dụ: Ít ngọt, gọi trước khi giao…"></textarea>
+          </div>
+        </div>
+        <div class="checkout-footer">
+          <div>
+            <div>Tiền hàng: <strong id="subtotalText">0đ</strong></div>
+            <div>Phí giao: <strong id="shippingText">0đ</strong></div>
+            <div class="grand">Tổng thanh toán: <strong id="grandTotalText">0đ</strong></div>
+            <small>Miễn phí ship cho đơn từ 200.000đ</small>
+          </div>
+          <button type="submit" class="btn btn-primary">Xác nhận đơn hàng</button>
+        </div>
+      </form>
+
+      <div id="orderResult" class="order-result" hidden>
+        <h3>🎉 Đặt hàng thành công!</h3>
+        <p>Mã đơn của bạn: <code id="orderId"></code></p>
+        <p>
+          <button id="btnPrint" class="btn btn-outline">In hoá đơn</button>
+          <button id="btnSave" class="btn btn-outline">Tải file đơn hàng</button>
+        </p>
+      </div>
+    </section>
+
+    <section id="lien-he" class="section">
+      <div class="section-head">
+        <h2>Liên hệ</h2>
+        <p>Inbox Zalo/Facebook hoặc gọi trực tiếp – luôn sẵn sàng!</p>
+      </div>
+      <div class="contact" style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn" href="tel:+8490xxxxxxx">📞 090-xxx-xxxx</a>
+        <a class="btn" href="https://zalo.me/" target="_blank" rel="noopener">💬 Zalo</a>
+        <a class="btn" href="https://m.me/" target="_blank" rel="noopener">📩 Facebook</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Sữa Chua Nhà Phú • MST/ĐKKD: 0123456789</div>
+      <div class="small">Địa bàn giao: Quy Nhơn • Đà Nẵng</div>
+    </div>
+  </footer>
+
+  <details id="testResults" style="margin:16px" open>
+    <summary>🔧 Kết quả tự kiểm thử (dev-only)</summary>
+    <ul id="tests"></ul>
+  </details>
+
+  <aside id="cartDrawer" class="cart-drawer" aria-hidden="true">
+    <div class="cart-header">
+      <h3>Giỏ hàng</h3>
+      <button id="closeCart" class="btn btn-icon" aria-label="Đóng">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">Tạm tính: <strong id="cartTotal">0đ</strong></div>
+      <button id="goCheckout" class="btn btn-primary">Đến phần đặt hàng</button>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
